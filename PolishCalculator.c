@@ -9,6 +9,7 @@
 #define NUMBER '0'
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <string.h>
 #include <ctype.h>
@@ -114,14 +115,14 @@ int getOper( char s[] ) {
     i = 0;
     if( !isdigit(c) && c != '.' && c != '-' ) 
         return c;
-    if ( c == '-' )
-        if ( isdgit(c = getch() || c == '.' )
+    if ( c == '-' ) {
+        if ( isdigit(c = getch() || c == '.' ) ) 
             s[++i] = c;
-        else {
+        else 
             if ( c != EOF )
                 ungetch(c);
             return '-';
-        }    
+    }
     if ( isdigit(c) )
         while ( isdigit( s[++i] = c = getch() ) )
             ;
