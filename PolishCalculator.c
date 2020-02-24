@@ -119,9 +119,10 @@ int getOper( char s[] ) {
         if ( isdigit(c = getch() || c == '.' ) ) 
             s[++i] = c;
         else 
-            if ( c != EOF )
+            if ( c != EOF ) {
                 ungetch(c);
-            return '-';
+                return '-';
+            }
     }
     if ( isdigit(c) )
         while ( isdigit( s[++i] = c = getch() ) )
